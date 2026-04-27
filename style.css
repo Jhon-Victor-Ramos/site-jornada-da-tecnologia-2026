@@ -58,7 +58,7 @@
     font-display: swap;
 }
 
-/* --- FUNDAÇÕES --- */
+/* --- VARIÁVEIS --- */
 :root {
     --G1: #050505; 
     --G2: #161616; 
@@ -91,8 +91,6 @@ body {
     color: var(--G7);
     font-family: 'Work Sans', sans-serif;
     width: 100%;
-    max-width: 700px; /* Alterado para garantir fluidez em telas menores */
-    margin: 0 auto;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -113,26 +111,13 @@ body {
     position: absolute; 
     width: 100%; 
     height: 100%;
-    /* 1. Deixei o branco um pouco mais forte (0.08) para o brilho ficar mais evidente onde a luz bater */
     background-image: linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), 
                       linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
     background-size: 80px 80px;
-    
-    /* 2. O Segredo da Iluminação: A Máscara */
-    /* Cria um círculo no canto superior direito que vai apagando o grid suavemente */
     -webkit-mask-image: radial-gradient(ellipse at top right, black 0%, transparent 65%);
     mask-image: radial-gradient(ellipse at top right, black 0%, transparent 65%);
 }
-.god-rays {
-    position: absolute;
-    top: 0;
-    right: 0;              /* Direita */
-    width: 350px;
-    height: 400px;
-    pointer-events: none;
-    z-index: 0;
-    overflow: visible;
-}
+
 
 .god-rays {
     position: absolute;
@@ -143,8 +128,7 @@ body {
     pointer-events: none;
     z-index: 0;
     overflow: visible;
-    transform: scaleX(-1);      /* Espelha horizontalmente */
-    /* Opcional: se houver transformações nos pseudo-elementos, o espelhamento será composto */
+    transform: scaleX(-1);
 }
 
 
@@ -152,7 +136,7 @@ body {
     content: "";
     position: absolute;
     top: -50px;
-    left: -50px;          /* Direita */
+    left: -50px;
     width: 300px;
     height: 400px;
     background:
@@ -165,29 +149,76 @@ body {
 
 /* --- HEADER --- */
 .main-header { 
+    width: 100vw;
+    max-width: 700px;
+    margin: 0 auto;
     padding: 24px 20px; 
     display: flex;
 }
+
 .header-pill {
     display: inline-flex; 
     align-items: center; 
     gap: 10px;
-    margin-left: 3rem;
-    padding: 8px 16px; 
+    padding: 8px 20px;
+    height: 40px;
     border-radius: 16px;
+    
     background: rgba(235, 235, 235, 0.12);
+    
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: inset 0 0 2px rgba(255,255,255,0.2);
+    
+    box-shadow: 
+        0px 0px 4px rgba(246, 246, 246, 0.25),
+        inset 0px -2px 2px rgba(246, 246, 246, 0.25),
+        inset 0px 2px 4px rgba(246, 246, 246, 0.25);
 }
-.header-logo { width: 48px; }
-.header-text { color: #FFF; font-size: 14px; font-family: 'Work Sans'; }
-.divider { margin: 0 4px; }
+
+.header-logo { 
+    height: 40px;
+    width: auto;
+}
+
+.header-text { 
+    color: #FFF; 
+    font-size: 14px; 
+    font-family: 'Work Sans', sans-serif; 
+    font-weight: 400;
+}
+
+.header-text { 
+    color: #FFF; 
+    font-size: 14px; 
+    font-family: 'Work Sans', sans-serif; 
+    font-weight: 400;
+    
+    display: flex;  
+    align-items: center;
+}
+
+.divider { 
+    display: block;
+    width: 1.5px;
+    height: 24px; 
+    margin: 0 10px;
+    
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+}
 
 /* --- MAIN CANVAS --- */
 .content-canvas {
-    position: relative; /* para conter o grid-light */
+    position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    flex-grow: 1;
 }
 
 .profile { 
@@ -211,7 +242,7 @@ body {
     object-position: top center; 
 }
 .profile-name { font-family: 'Prompt', sans-serif; font-size: 24px; font-weight: 400; color: #FFF; }
-.profile-degree { color: var(--G6); font-size: 16px; margin-top: 8px; }
+.profile-degree { color: var(--G6); font-size: 16px; }
 
 .hero { text-align: center; margin-bottom: 56px; }
 .hero-title { font-size: 24px; font-weight: 400; color: var(--G7); }
@@ -230,14 +261,13 @@ body {
     gap: 40px; 
     justify-content: center; 
 }
-.column-header { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
-.column-header h3 { font-size: 18px; font-weight: 400; letter-spacing: 0.4px; left: 50%;}
+.column-header { display: grid; grid-template-columns: .25fr 2fr; margin-bottom: 24px; justify-items: center;}
+/* .column-header { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; } */
+.column-header h3 { font-size: 18px; font-weight: 400; letter-spacing: 0.4px; }
 .stack { display: flex; flex-direction: column; gap: 16px; }
 
-/* --- ANATOMIA DO BOTÃO GLASSMORPHISM --- */
+/* --- ANATOMIA DO BOTÃO GLASSMORPHISM (NÍVEL PREMIUM) --- */
 .pill-wrapper { display: flex; align-items: stretch; position: relative; }
-
-/* Separador Externo: Fundido sem gap */
 .external-sep { margin-right: -1px; z-index: 2; display: flex; align-items: center; }
 
 .pill-button {
@@ -249,54 +279,80 @@ body {
     padding: 10px 16px 10px 14px;
     border-radius: 16px;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição mais suave e orgânica */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     
-    /* A borda fina e semitransparente age como o "corte" do vidro */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Borda sutil de corte do vidro */
+    border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
+    
+    /* NOVO: Impede que os reflexos "vazem" para fora das bordas arredondadas */
+    overflow: hidden;
 }
 
-/* Glassmorphism Puro */
+.pill-meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Glassmorphism com Saturação e Volume */
 .glass {
-    /* Fundo levemente esbranquiçado, mas muito transparente */
-    background: rgba(235, 235, 235, 0.04);
+    background: rgba(23, 23, 23, 0.2); /* Fundo um pouco mais denso para dar contraste */
     
-    /* O desfoque que embaça o grid atrás do botão */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    /* O saturate(120%) puxa as cores do fundo e deixa o vidro mais vibrante */
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
     
+    /* Sombras que criam a espessura e elevação da peça */
     box-shadow: 
-        0px 4px 16px rgba(0, 0, 0, 0.4),                   /* Sombra projetada para separar do fundo */
-        0px 0px 4px rgba(246, 246, 246, 0.05),             /* Glow externo sutil (do Figma) */
-        inset 0px 2px 4px rgba(246, 246, 246, 0.15),       /* Luz batendo na borda superior (do Figma) */
-        inset 0px -2px 2px rgba(246, 246, 246, 0.05);      /* Reflexo interno na borda inferior (do Figma) */
+        0px 12px 30px rgba(0, 0, 0, 0.4),               /* Sombra externa pesada e suave */
+        inset 0px 0px 4px 1px rgba(255, 255, 255, 0.05),/* Chanfro interno geral */
+        inset 0px 1px 2px rgba(255, 255, 255, 0.15);    /* Luz batendo firme no topo */
+}
+
+/* A MAGIA: Reflexo especular diagonal (Luz da Janela) */
+.glass::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; /* Deixa o clique passar para o botão */
+    background: linear-gradient(to left top, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 45%);
+    z-index: 1;
+}
+
+/* A MAGIA: Reflexo ambiental do teto */
+.glass::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 100%);
+    z-index: 1;
+}
+
+/* NOVO: Garante que os ícones e textos fiquem POR CIMA do reflexo do vidro */
+.pill-icon, .pill-content, .social-icon, .social-text {
+    position: relative;
+    z-index: 2; 
+    /* Adiciona leve sombra no texto para não sumir contra fundos claros que passem pelo blur */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 /* 1. O botão reage quando o mouse passa no container inteiro */
 .pill-wrapper:hover .pill-button { 
-    background: rgba(235, 235, 235, 0.08); /* O vidro fica um pouco mais leitoso/visível */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda fica mais nítida */
+    background: rgba(255, 255, 255, 0.08); /* O vidro "acende" */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
     box-shadow: 
-        0px 8px 24px rgba(0, 0, 0, 0.6),                   /* A sombra cresce pois o botão "subiu" */
-        0px 0px 8px rgba(246, 246, 246, 0.08),
-        inset 0px 2px 4px rgba(246, 246, 246, 0.25),       /* O reflexo superior fica mais forte */
-        inset 0px -2px 2px rgba(246, 246, 246, 0.05);
+        0px 16px 40px rgba(0, 0, 0, 0.6),              /* Sombra aumenta projetando o botão pra frente */
+        inset 0px 0px 4px 1px rgba(255, 255, 255, 0.05),
+        inset 0px 2px 4px rgba(255, 255, 255, 0.25);   /* Luz de topo fica mais forte */
     transform: translateY(-3px);
 }
-/* 2. O separador externo acompanha o movimento e ganha destaque */
+
+/* O separador externo acompanha o movimento (mantido igual, funciona muito bem) */
 .pill-wrapper:hover .external-sep svg {
     height: 22px; 
-    transform: translateY(-3px); /* Sincronizado com a altura do botão */
+    transform: translateY(-3px); 
     filter: brightness(1.3) drop-shadow(0 0 6px rgba(255,255,255,0.3)); 
-}
-
-.pill-icon { width: 32px; height: auto; object-fit: contain; }
-.pill-content { display: flex; flex-direction: column; flex: 1; justify-content: center; }
-.pill-meta { 
-    display: flex; 
-    justify-content: space-between; 
-    width: 100%; 
-    margin-bottom: 0px; /* Zerado para grudar no separador */
 }
 .pill-cat, .pill-dur { font-size: 11px; color: var(--G6); letter-spacing: 0.2px; }
 
@@ -354,8 +410,11 @@ body {
 
 /* --- HEADER AJUSTES --- */
 .header-with-back {
-    justify-content: center; /* Centraliza a pílula do logo */
+    justify-content: center; 
     position: relative;
+}
+.header-with-back .header-pill {
+    margin-left: 0;
 }
 .back-button {
     position: absolute;
@@ -393,28 +452,44 @@ body {
     width: 100%;
     height: auto;
     object-fit: contain;
-    /* Adiciona um brilho sutil em volta da imagem principal */
     filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
 }
+
 .course-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 400px;
+    width: 100%;
+    max-width: 360px; /* A Caixa Invisível */
 }
-.course-meta { margin-bottom: 4px; }
+
+.course-meta { 
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%; 
+    margin-bottom: 8px; 
+}
+
+.category-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .course-title {
     font-family: 'Prompt', sans-serif;
     font-size: 32px;
     font-weight: 600;
     color: #FFF;
     line-height: 1.1;
-    margin-top: 8px;
+    margin-top: 4px;
     margin-bottom: 24px;
+    width: 100%;
 }
 
-/* O CTA Principal */
 .btn-download {
+    align-self: flex-end; /* Ancora à direita */
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -428,23 +503,24 @@ body {
     padding: 12px 20px;
     border-radius: 24px;
     border: 4px solid rgba(246, 246, 246, 0.30);
-    box-shadow: 0 4px 15px rgb(255, 184, 0, .3), 
-                inset 0 2px 4px #C7C7C7;
+    box-shadow: 0 4px 15px rgb(255, 184, 0, .3), inset 0 2px 4px #C7C7C7;
     transition: all 0.3s ease;
 }
 .btn-download:hover {
     transform: translateY(-1px) scale(1.02);
-    box-shadow: 0 4px 15px rgb(255, 184, 0, .7), 
-                inset 0 2px 4px #C7C7C7;
+    box-shadow: 0 4px 15px rgb(255, 184, 0, .7), inset 0 2px 4px #C7C7C7;
 }
 
-/* --- CARROSSEL DE MATERIAIS --- */
+/* --- CARROSSEL E HEADER DE MATERIAIS --- */
 .materials-header {
-    justify-content: center; /* Centraliza o título no carrossel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 32px;
     position: relative;
+    width: 100%;
 }
-/* Linha de fade sob o título */
 .materials-header::after {
     content: '';
     position: absolute;
@@ -455,93 +531,177 @@ body {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
 }
+.section-icon {
+    width: 24px;
+}
 
 .carousel-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    width: 100vw; /* Força largura total da tela */
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0 20px; /* Margem interna para mobile */
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
 }
 
-.nav-arrow {
-    background: transparent;
-    border: none;
-    color: var(--G6);
-    cursor: pointer;
-    transition: color 0.2s;
-    display: none; /* Escondido por padrão, exibido no desktop */
-}
-.nav-arrow:hover { color: #FFF; }
 
 .carousel-track {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding-bottom: 24px; /* Espaço para a sombra do box */
-    
-    /* Mágica do Scroll nativo no mobile (não precisa de JS) */
+    padding-bottom: 24px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    
-    /* Esconde a barra de rolagem mas mantém o scroll */
     -ms-overflow-style: none;  
     scrollbar-width: none;  
+    width: 100%; /* Garante que o trilho não quebre o layout */
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 
 /* O Card do Material */
 .material-card {
-    min-width: 320px;
-    max-width: 320px;
-    flex-shrink: 0; /* Impede o flexbox de amassar o card */
-    scroll-snap-align: center; /* O card para sempre centralizado ao rolar */
-    border-radius: 20px;
+    min-width: 300px;
+    max-width: 300px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    border-radius: 16px;
     padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    
+    /* Transições do Observer */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s ease, 
+                opacity 0.4s ease;
+    opacity: 0.4; /* Estado apagado */
+    transform: scale(0.95);
 }
 
-/* Espaço para a Thumbnail do Youtube/PDF */
+/* O Card Ativo (no meio da tela) */
+.material-card.active-card {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1), 
+                inset 0px 0px 4px rgba(246, 246, 246, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Área da Imagem */
+.thumb-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
 .thumb-placeholder {
     width: 100%;
-    aspect-ratio: 16 / 9; /* Proporção perfeita de vídeo */
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 12px;
+    height: 100%;
+    background: #C7C7C7;
+}
+.material-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.card-content { display: flex; flex-direction: column; gap: 8px; }
+/* Conteúdo do Card */
+.card-content { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    flex-grow: 1; 
+}
+.cat-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.card-sep {
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    opacity: 0.8;
+}
 
 .material-title {
-    font-size: 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--G8);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    line-height: 1.4;
+    text-decoration: none;
+}
+.material-title:hover { text-decoration: underline dashed 1.5px var(--G6); }
+
+.title-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: .1s ease-in-out all;
 }
 
-/* Truncamento mágico do Front-End (Reticências automáticas) */
+
+.external-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    opacity: 0.5; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.material-title:hover .external-icon {
+    opacity: 1;
+    transform: translate(2px, -2px);
+    filter: brightness(1.2);
+}
+
 .material-desc {
     font-size: 11px;
     line-height: 1.4;
     color: var(--G6);
-    
-    /* Limita o texto a 3 linhas exatas. Se passar, adiciona "..." */
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* --- ESTILO DAS SETAS DO CARROSSEL --- */
+.nav-arrow {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: none; 
+    padding: 8px; 
+}
+.arrow-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.5; 
+    transition: all 0.3s ease;
+}
+.nav-arrow:hover .arrow-icon { 
+    opacity: 1; 
+    filter: brightness(1.5) drop-shadow(0 0 8px rgba(255,255,255,0.3)); 
+}
+.nav-arrow:disabled .arrow-icon {
+    opacity: 0.15;
+    cursor: not-allowed;
+    filter: none;
+}
+.nav-arrow:disabled {
+    cursor: not-allowed;
 }
 
 /* --- RESPONSIVIDADE PÁGINA 2 --- */
 @media (max-width: 640px) {
     .header-with-back { justify-content: flex-end; }
-    
     .course-hero {
         flex-direction: column;
         gap: 24px;
@@ -550,60 +710,63 @@ body {
     }
     
     .course-info {
-        align-items: center; /* Centraliza tudo no mobile */
+        align-items: center; 
     }
     
     .course-title { font-size: 28px; text-align: center; }
+    .course-meta { width: 75%; }
     
-    .carousel-track { padding: 0 20px 24px; } /* Garante espaçamento na rolagem mobile */
+    .btn-download {
+        align-self: center;
+    }
+
+    .carousel-track {
+        padding-left: calc(50% - 150px);
+        padding-right: calc(50% - 150px);
+    }
 }
 
-@media (min-width: 768px) {
-    .nav-arrow { display: block; } /* Mostra setinhas no PC */
-    .carousel-wrapper { max-width: 800px; padding: 0; }
-}
-
-
-
-/* --- RESPONSIVIDADE (MOBILE) --- */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+    
     .content-canvas {
         padding: 0 24px;
     }
 
     .main-grid {
+        max-width: 50dvw;
         grid-template-columns: 1fr;
-        gap: 40px;
+        grid: center;
+        gap: 48px;
+        margin: 0 auto;
+        justify-items: center;
+        align-items: center;
     }
 
-    .hero-title {
-        font-size: 20px;
-    }
-
-    .pill-button {
-        max-width: 100%; /* Permite expandir na tela do celular */
-    }
-    /* 1. Transforma APENAS a stack de redes sociais em um grid 2x2 */
-    .main-grid > .grid-column:nth-child(2) .stack {
+    .main-grid .grid-column:nth-child(2) .stack {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px; /* Reduzido levemente para dar mais espaço aos botões */
+        gap: 16px;
     }
 
-    /* 2. Ajuste de sobrevivência para os botões sociais espremidos */
-    .main-grid > .grid-column:nth-child(2) .pill-button {
-        padding: 8px 10px; /* Reduz o padding para ganhar área útil */
-        gap: 8px; /* Aproxima o ícone do texto */
-        min-height: 44px;
+    .grid-column:first-child {
+        width: 100%;
     }
 
-    /* 3. Trava de segurança para textos longos (ex: Jhon-Victor-Ramos) */
+    .grid-column:first-child .stack .pill-wrapper .pill-button.glass {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .main-grid .grid-column:nth-child(2) .pill-button {
+        padding: 8px 12px;
+        gap: 8px;
+        min-height: 48px;
+    }
+
     .social-text {
-        font-size: 11px; /* Fonte levemente menor para garantir o encaixe */
-        white-space: nowrap; /* Impede o texto de quebrar para a linha de baixo */
-        overflow: hidden; /* Esconde o que vazar */
-        text-overflow: ellipsis; /* Adiciona "..." no final se não couber */
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
-
-
