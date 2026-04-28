@@ -23,8 +23,9 @@ Este projeto foi desenvolvido e projetado do zero para entregar uma experiência
 
 Para este projeto, optei por uma abordagem **Vanilla (HTML5, CSS3, JavaScript puro)**, dispensando o uso de frameworks ou bibliotecas externas pesadas. O objetivo foi garantir um carregamento quase instantâneo, ideal para conexões 4G/3G móveis durante o evento.
 
-### 1. UI/UX & Glassmorphism Avançado
-* A interface utiliza um Design System no formato "Dark Mode" com tokens de variáveis CSS.
+### 1. UI/UX
+* A interface utiliza um Design System no formato "Dark Mode" com tokens de variáveis CSS, regras de espaçamento, grid e entre outras funções.
+* Heurísticas de designs foram aplicadas para melhor fluxo de navegação do usuário, além de tornar a interface equilibrada entre um design bonito e boa usabilidade.
 
 ### 2. Extração Dinâmica de Thumbnails (Regex)
 * Para facilitar a manutenção do banco de dados local (`data.js`), o JavaScript conta com um parser de Expressão Regular (Regex) que detecta URLs do YouTube.
