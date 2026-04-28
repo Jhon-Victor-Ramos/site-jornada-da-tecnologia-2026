@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }).join('');
 
-    // --- LÓGICA DO CARROSSEL (INTERSECTION OBSERVER) ---
     const prevBtn = document.getElementById('js-prev-btn');
     const nextBtn = document.getElementById('js-next-btn');
     const cards = track.querySelectorAll('.material-card');

@@ -257,13 +257,23 @@ body {
 /* --- GRID E STACK --- */
 .main-grid { 
     display: grid; 
-    grid-template-columns: minmax(240px, 280px) minmax(180px, 200px); 
-    gap: 40px; 
+    grid-template-columns: 1.4fr 1fr; 
+    gap: 48px;
     justify-content: center; 
+    width: 100%;
 }
-.column-header { display: grid; grid-template-columns: .25fr 2fr; margin-bottom: 24px; justify-items: center;}
-/* .column-header { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; } */
-.column-header h3 { font-size: 18px; font-weight: 400; letter-spacing: 0.4px; }
+.column-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; /* Essa é a "cola" que segura o ícone a exatos 12px do título */
+    margin-bottom: 24px; 
+    justify-content: flex-start; /* No PC, fica ancorado à esquerda */
+}
+.column-header h3 { 
+    font-size: 18px; 
+    font-weight: 400; 
+    letter-spacing: 0.4px; 
+}
 .stack { display: flex; flex-direction: column; gap: 16px; }
 
 /* --- ANATOMIA DO BOTÃO GLASSMORPHISM (NÍVEL PREMIUM) --- */
@@ -273,19 +283,16 @@ body {
 .pill-button {
     display: flex; 
     align-items: center; 
-    gap: 12px;
+    gap: 16px;
     width: 100%; 
-    min-height: 54px;
-    padding: 10px 16px 10px 14px;
+    min-height: 64px;
+    padding: 12px 20px 12px 16px;
     border-radius: 16px;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     
-    /* Borda sutil de corte do vidro */
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
-    
-    /* NOVO: Impede que os reflexos "vazem" para fora das bordas arredondadas */
     overflow: hidden;
 }
 
@@ -329,7 +336,6 @@ body {
     z-index: 1;
 }
 
-/* NOVO: Garante que os ícones e textos fiquem POR CIMA do reflexo do vidro */
 .pill-icon, .pill-content, .social-icon, .social-text {
     position: relative;
     z-index: 2; 
@@ -366,12 +372,12 @@ body {
 .sep-orange { background: var(--OR1-grad); }
 .sep-purple { background: var(--PR1-grad); }
 
-.pill-title { font-size: 14px; font-weight: 600; color: var(--G8); line-height: 1.2; }
+.pill-title { font-size: 18px; font-weight: 600; color: var(--G8); line-height: 1.4; }
 
 /* Redes Sociais Adaptadas */
 .social { padding-left: 12px; min-height: 48px; }
 .social-icon { width: 24px; }
-.social-text { font-size: 13px; font-weight: 600; color: var(--G8); text-decoration: underline; }
+.social-text { font-size: 16px; font-weight: 600; color: var(--G8); text-decoration: underline; }
 
 /* --- FOOTER --- */
 .main-footer {
@@ -778,7 +784,6 @@ body {
 }
 
 /* --- RESPONSIVIDADE CARROSSEL (DESKTOP) --- */
-/* (Você tinha apagado essa regra sem querer!) */
 @media (min-width: 768px) {
     .nav-arrow { display: block; } 
     
