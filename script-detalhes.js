@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let finalThumb = item.thumb;
         if (!finalThumb && item.link && item.link.includes('youtu')) {
             const ytId = getYouTubeId(item.link);
-            // CORREÇÃO: A URL MÁGICA FOI RESTAURADA AQUI!
             if (ytId) finalThumb = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`; 
         }
 
@@ -89,4 +88,28 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.addEventListener('click', () => {
         track.scrollBy({ left: 320, behavior: 'smooth' });
     });
+
+        const speakersSection = document.getElementById('js-speakers-section');
+    if (data.speakers && data.speakers.length > 0) {
+        speakersSection.style.display = 'flex';
+        
+        const teamIcon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`;
+
+        speakersSection.innerHTML = `
+            <div class="column-header materials-header">
+                ${teamIcon}
+                <h3>Apresentadores</h3>
+            </div>
+            <div class="speakers-grid">
+                ${data.speakers.map(speaker => `
+                    <div class="speaker-card">
+                        <div class="speaker-photo">
+                            <img src="${speaker.photo}" alt="Foto de ${speaker.name}">
+                        </div>
+                        <span class="speaker-name">${speaker.name}</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
 });
