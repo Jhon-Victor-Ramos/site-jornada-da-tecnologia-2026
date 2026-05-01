@@ -771,6 +771,10 @@ body {
     line-height: 1.2;
 }
 
+.speaker-link:visited, .speaker-link {
+    color: var(--G6);
+}
+
 /* Adaptação para o Desktop */
 @media (min-width: 768px) {
     .speakers-grid {

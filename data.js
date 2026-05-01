@@ -97,12 +97,36 @@ const workshops = {
         downloadLink: "#",
         description: "Uma introdução ao processamento de imagens e IA aplicada ao reconhecimento de padrões.",
         speakers:[
-            { name: "Camilla Torquato", photo: "./assets/images/camilla-torquato.webp" },
-            { name: "Jhon Victor", photo: "./assets/images/jhon-victor.webp" },
-            { name: "João Pedro", photo: "./assets/images/joao-pedro.webp" },
-            { name: "Maria Clara", photo: "./assets/images/maria-clara.webp" },
-            { name: "Maria Luiza", photo: "./assets/images/maria-luiza.webp" },
-            { name: "Rielly Luiza", photo: "./assets/images/rielly-luiza.webp" }
+            { 
+                name: "Camilla Torquato",
+                photo: "./assets/images/camilla-torquato.webp",
+                link: ""
+            },
+            { 
+                name: "Jhon Victor",
+                photo: "./assets/images/jhon-victor.webp",
+                link: "https://www.linkedin.com/in/jhon-victor-ramos/"
+            },
+            { 
+                name: "João Pedro",
+                photo: "./assets/images/joao-pedro.webp",
+                link: ""
+            },
+            { 
+                name: "Maria Clara",
+                photo: "./assets/images/maria-clara.webp",
+                link: "https://www.linkedin.com/in/maria-clara-de-oliveira-barbosa-07457b364/"
+            },
+            { 
+                name: "Maria Luiza",
+                photo: "./assets/images/maria-luiza.webp",
+                link: "https://www.linkedin.com/in/maria-luiza-monteiro-6a7246280/"
+            },
+            { 
+                name: "Rielly Luiza",
+                photo: "./assets/images/rielly-luiza.webp",
+                link: ""
+            }
         ],
 
         recommendations:[

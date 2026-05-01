@@ -109,10 +109,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="speakers-grid">
                 ${data.speakers.map(speaker => `
                     <div class="speaker-card">
+                        <a href="${speaker.link}" target="_blank" class="speaker-link">
                         <div class="speaker-photo">
                             <img src="${speaker.photo}" alt="Foto de ${speaker.name}">
                         </div>
-                        <span class="speaker-name">${speaker.name}</span>
+                        <span class="speaker-name">${speaker.name}</span></a>
                     </div>
                 `).join('')}
             </div>
