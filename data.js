@@ -97,12 +97,12 @@ const workshops = {
         downloadLink: "#",
         description: "Uma introdução ao processamento de imagens e IA aplicada ao reconhecimento de padrões.",
         speakers:[
-            { name: "Camilla Torquato", photo: "./assets/images/camilla-torquato.jpg" },
-            { name: "Jhon Victor", photo: "./assets/images/jhon-victor.jpg" },
-            { name: "João Pedro", photo: "./assets/images/joao-pedro.jpeg" },
-            { name: "Maria Clara", photo: "./assets/images/maria-clara.jpg" },
-            { name: "Maria Luiza", photo: "./assets/images/maria-luiza.jpg" },
-            { name: "Rielly Luiza", photo: "./assets/images/rielly-luiza.jpg" }
+            { name: "Camilla Torquato", photo: "./assets/images/camilla-torquato.webp" },
+            { name: "Jhon Victor", photo: "./assets/images/jhon-victor.webp" },
+            { name: "João Pedro", photo: "./assets/images/joao-pedro.webp" },
+            { name: "Maria Clara", photo: "./assets/images/maria-clara.webp" },
+            { name: "Maria Luiza", photo: "./assets/images/maria-luiza.webp" },
+            { name: "Rielly Luiza", photo: "./assets/images/rielly-luiza.webp" }
         ],
 
         recommendations:[
