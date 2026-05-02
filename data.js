@@ -99,8 +99,8 @@ const workshops = {
         speakers:[
             { 
                 name: "Camilla Torquato",
-                photo: "./assets/images/camilla-torquato.webp",
-                link: ""
+                photo: "./assets/images/camila-torquato.webp",
+                link: "https://www.linkedin.com/in/camila-torquato-5b5356354?utm_source=share_via&utm_content=profile&utm_medium=member_android"
             },
             { 
                 name: "Jhon Victor",
@@ -125,7 +125,7 @@ const workshops = {
             { 
                 name: "Rielly Luiza",
                 photo: "./assets/images/rielly-luiza.webp",
-                link: ""
+                link: "https://www.linkedin.com/in/rielly-luiza-370282332?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
             }
         ],
 
